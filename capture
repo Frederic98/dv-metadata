@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+index=`ls dv | grep '^tape[0-9]\+$' | cut -c5- | sort -n | tail -n1`
+((index++))
+echo Grabbing tape $index
+mkdir -p dv/tape$index
+dvgrab -a -rewind -showstatus -s 0 -srt dv/tape$index/tape$index-.avi
